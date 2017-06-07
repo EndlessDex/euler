@@ -64,13 +64,11 @@ def primeFactors(N):
     return factors
 
 
-def divisors(N):
-    facs = primeFactors(N)
-    divs = set([1])
-    for p, i in facs:
-        temp = set()
-        for d in divs.copy():
-            for e in range(i+1):
-                temp.add(d * p**e)
-        divs = temp
-    return divs
+def divisors(n):
+    out = set()
+    step = 2 if n % 2 else 1
+    for i in range(1, int(n**.5) + 1, step):
+        if n % i == 0:
+            out.add(i)
+            out.add(n//i)
+    return out
