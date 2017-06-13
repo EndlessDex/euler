@@ -1,5 +1,5 @@
 from itertools import count
-
+from scipy.constants import golden
 
 # Postpone Method - based on Will Ness
 def genPrimes(mer=False):
@@ -72,3 +72,16 @@ def divisors(n):
             out.add(i)
             out.add(n//i)
     return out
+
+
+def genFib(n = None):
+    if not n:
+        a, b = 1, 1
+        while True:
+            yield a
+            a, b = b, a + b
+    else:
+        try:
+            yield round(golden**n / 5**0.5)
+        except OverflowError:
+            yield 'Error: n too large'
