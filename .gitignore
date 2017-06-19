@@ -102,3 +102,4 @@ ENV/
 
 # kernprof profiler
 *.lprof
+*.p
